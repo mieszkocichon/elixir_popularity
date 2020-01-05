@@ -24,3 +24,6 @@ elixir_popularity-*.tar
 
 # Ignore history directory
 /.history
+
+# Ignore log directory
+/log

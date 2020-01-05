@@ -27,7 +27,15 @@ be found at [https://hexdocs.pm/elixir_popularity](https://hexdocs.pm/elixir_pop
 docker-compose up
 ```
 
-### iex
+### Create table
+```bash
+mix ecto.create 
 ```
+```bash
+mix ecto.migrate
+```
+
+### iex
+```bash
 iex -S mix
 ```

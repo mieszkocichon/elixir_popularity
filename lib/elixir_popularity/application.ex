@@ -14,7 +14,24 @@ defmodule ElixirPopularity.Application do
       %{
         id: ElixirPopularity.RMQPublisher,
         start: {ElixirPopularity.RMQPublisher, :start_link, []}
-      }
+      },
+      %{
+        id: ElixirPopularity.HackerNewsIdGenerator,
+        start:
+          {ElixirPopularity.HackerNewsIdGenerator, :start_link,
+           [
+             %{
+               current_id: 2_306_006,
+               end_id: 21_672_858,
+               generate_threshold: 50_000,
+               batch_size: 30_000,
+               poll_rate: 30_000
+             }
+           ]},
+        restart: :transient
+      },
+      ElixirPopularity.HackernewsIdProcessor,
+      ElixirPopularity.HackernewsPayloadProcessor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
